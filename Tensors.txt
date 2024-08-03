@@ -1,7 +1,9 @@
 Tensors
 
 A tensor is a multi-dimensional array that generalizes the concepts of scalars (0D), vectors (1D), and matrices (2D)
-to higher dimensions. They are fundamental in various fields, including physics, engineering, and machine learning.
+to higher dimensions. 
+
+In simple terms, it is like container which stored numbers. 
 
 Types of Tensors
 
@@ -24,40 +26,43 @@ Types of Tensors
 import numpy as np
 
 0D Tensor (Scalar)
-scalar = np.array(42)
-print(f"0D Tensor (Scalar): {scalar}")
+a = np.array(4)
+a 
+Output = array(4)
+For finding the dimension, we used the ndim: 
+a.ndim 
+Output = 0
 
 1D Tensor (Vector)
-vector = np.array([1, 2, 3])
-print(f"1D Tensor (Vector): {vector}")
+b = np.array([1, 2, 3])
+b 
+Output = ([1, 2, 3])
+b.ndim 
+Output = 1
 
 2D Tensor (Matrix)
-matrix = np.array([[1, 2, 3], [4, 5, 6]])
-print(f"2D Tensor (Matrix): \n{matrix}")
+c = np.array([[1, 2, 3],[4,5,6]])
+c 
+Output = ([[1, 2, 3]
+          [4,5,6]])
+c.ndim 
+Output = 2
 
 3D Tensor
-tensor_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
-print(f"3D Tensor: \n{tensor_3d}")
+d = np.array([[[1, 2, 3],[4,5,6]],[[1, 2, 3],[4,5,6]],[[1, 2, 3],[4,5,6]]])
+d
+Output = ([[[1, 2, 3]
+          [4,5,6]]
+          [[1, 2, 3]
+          [4,5,6]]
+          [[1, 2, 3]
+          [4,5,6]]])
+d.ndim 
+Output = 3
 
-ND Tensor
-tensor_nd = np.random.rand(2, 3, 4)  # Example of a 3D tensor with shape (2, 3, 4)
-print(f"ND Tensor: \n{tensor_nd}")
 
-# Getting size, shape, axis, and rank of the tensors
-def tensor_properties(tensor):
-    print(f"Tensor: \n{tensor}")
-    print(f"Size: {tensor.size}")
-    print(f"Shape: {tensor.shape}")
-    print(f"Number of Axes (Rank): {tensor.ndim}\n")
-
-print("Properties of 1D Tensor (Vector):")
-tensor_properties(vector)
-
-print("Properties of 2D Tensor (Matrix):")
-tensor_properties(matrix)
-
-print("Properties of 3D Tensor:")
-tensor_properties(tensor_3d)
-
-print("Properties of ND Tensor:")
-tensor_properties(tensor_nd)
+ Getting size, shape, axis, and rank of the tensors
+1. tensor.size
+2. tensor.shape
+3. tensor.ndim
+  
