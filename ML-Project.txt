@@ -1,0 +1,150 @@
+I take the dataset which contains the 100 rows and 11 columns. 
+
+I will explain few commands which will be helpful to train the model and deploy it on server. 
+
+1. How to connect the CSV file with google drive in google colab. 
+
+   You just have to hover on google drive icon and connect with this email in which you already upload your dataset. 
+   Then use pandas library and call it with this function: 
+    
+   ---> import pandas as pd 
+	df = pd.read_csv('/content/drive/MyDrive/name.csv')
+
+2. If you want to see the dataset in output. 
+   
+   ---> df = pd.read
+   
+   It will show the dataset. Lets suppose you want to show particular columns and rows. Then, use below syntax: 
+   
+   ---> col = df.iloc [:,7,11] 
+   
+   It shows all rows and it started from the column 7 to 10, not included column 11. 
+
+3. If you want to know about how many rows and columns. 
+   
+   ---> df.shape 
+   Output (columns, rows)
+
+
+The above commands are used to see the dataset. 
+
+Steps involved: 
+
+1. Preprocess + EDA (expolatory Data Analysis) + Feature Selection 
+2. Extract input and output columns 
+3. Scale the values 
+4. Train Test Split 
+5. Train the model 
+6. Evaluate the model or model selection 
+7. Deploy the model 
+
+
+Preprocessor: is used to removes the missing values, outliers and duplicate values. 
+EDA: In which you have to plot the graph. 
+Feature Selection: used for selection of input columns. 
+
+1. Preprocessor: 
+
+   You have to find the information about the data.
+   
+   ---> df.info()
+   If you see all data good then move forward. 
+
+2. EDA 
+   
+   You have to plot the graph by using an another library (matplotlib). 
+   
+   ---> import matplotlib.pyplot as plt 
+        plt.scatter(col['column-1'], col['column-2'])
+
+Machine Learning Model 
+
+We will use the Logistic Regression for this model. 
+
+3. Extract the input and ouput columns 
+
+   ---> X = col.iloc[:,0:4]
+        y = col.iloc[:,-1]
+
+4. Train test split 
+   
+   In this step, you will split the data, like how much you want to train and how much you want to test. 
+   Like I have 100 rows and I trained only 90 and 10 remains for    testing. For this, we will use the scikit learn library: 
+   
+   ---> from sklearn.model_selection import train_test_split 
+        train_test_split(X,y,test_size=0.1) 
+        
+        The second line of code represents that you have to add the independent, dependent columns and also the size of
+         data how much you want to test (like if you are giving the 0.1 (10%))
+   ---> x_train, x_test, y_train, y_test= train_test_split(X,y, test_size=0.1)
+
+
+5. Scale the Values
+
+   If you want to scale the values between the 0 and 1. We will used scikit library again. 
+   
+   ---> from sklearn.preprocessing import StandardScaler
+        scaler = StandardScaler()
+        x_train = scaler.fit_transform(x_train)
+        x_test = scaler.fit_transform(x_test)
+
+6. Train the model 
+
+   we will train on the model which is called Logistic Regression. 
+   
+   ---> from sklearn.linear_model import LogisticRegression 
+        clf = LogisticRegression() 
+        
+Model Training Step 
+
+        clf.fit(x_train, y_train)
+
+
+7. Evaluation the model 
+
+
+   Check the accuracy of the model. 
+   
+   from sklearn.metrics import accuracy_score 
+   accuracy_score(y_test, y_pred)
+
+How to plot the decision Boundary 
+
+   from mlxtend.plotting import plot_decision_regions
+   plot_decision_regions(x_train, y_train.values, clf=clf, legend=2)
+
+8. Deploy the model on website and use as a product 
+
+
+Thank you!!!
+
+
+        
+
+
+
+
+   
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
