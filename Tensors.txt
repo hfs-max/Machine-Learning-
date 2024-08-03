@@ -1,0 +1,63 @@
+Tensors
+
+A tensor is a multi-dimensional array that generalizes the concepts of scalars (0D), vectors (1D), and matrices (2D)
+to higher dimensions. They are fundamental in various fields, including physics, engineering, and machine learning.
+
+Types of Tensors
+
+1. 0D Tensor (Scalar): A single number.
+   Example: 5
+
+2. 1D Tensor (Vector): An array of numbers.
+   Example: ([1, 2, 3])
+
+3. 2D Tensor (Matrix): A 2D array of numbers.
+   Example: ([[1, 2, 3],[4,5,6]])
+
+4. 3D Tensor: A 3D array of numbers.
+   Example: A stack of matrices, like a cube of numbers.
+
+5. ND Tensor: A tensor with N dimensions.
+
+
+ Code (How to write tensors) 
+import numpy as np
+
+0D Tensor (Scalar)
+scalar = np.array(42)
+print(f"0D Tensor (Scalar): {scalar}")
+
+1D Tensor (Vector)
+vector = np.array([1, 2, 3])
+print(f"1D Tensor (Vector): {vector}")
+
+2D Tensor (Matrix)
+matrix = np.array([[1, 2, 3], [4, 5, 6]])
+print(f"2D Tensor (Matrix): \n{matrix}")
+
+3D Tensor
+tensor_3d = np.array([[[1, 2], [3, 4]], [[5, 6], [7, 8]]])
+print(f"3D Tensor: \n{tensor_3d}")
+
+ND Tensor
+tensor_nd = np.random.rand(2, 3, 4)  # Example of a 3D tensor with shape (2, 3, 4)
+print(f"ND Tensor: \n{tensor_nd}")
+
+# Getting size, shape, axis, and rank of the tensors
+def tensor_properties(tensor):
+    print(f"Tensor: \n{tensor}")
+    print(f"Size: {tensor.size}")
+    print(f"Shape: {tensor.shape}")
+    print(f"Number of Axes (Rank): {tensor.ndim}\n")
+
+print("Properties of 1D Tensor (Vector):")
+tensor_properties(vector)
+
+print("Properties of 2D Tensor (Matrix):")
+tensor_properties(matrix)
+
+print("Properties of 3D Tensor:")
+tensor_properties(tensor_3d)
+
+print("Properties of ND Tensor:")
+tensor_properties(tensor_nd)
